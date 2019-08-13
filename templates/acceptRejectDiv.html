@@ -1,0 +1,16 @@
+{% for obj in pending_services %}
+<!-- <div class="row"> -->
+<p><span style="font-weight: bold">Company : </span>{{obj.company}}</p>
+<p><span style="font-weight: bold">Service : </span>{{obj.service}}</p>
+<p><span style="font-weight: bold">Category : </span>{{obj.category}}</p>
+<p><span style="font-weight: bold">Description : </span>{{obj.description}}</p>
+
+<div class="float-right">
+    <button class="btn btn-success" onclick="accepted('{{ obj.company }}', '{{ obj.service }}', '{{ obj.category }}')">A</button>
+    <button class="btn btn-danger" onclick="rejected('{{ obj.company }}', '{{ obj.service }}', '{{ obj.category }}')">R</button>
+</div>
+<div class="row"></div>
+<br>
+<hr>
+<!-- </div> -->
+{% endfor %}

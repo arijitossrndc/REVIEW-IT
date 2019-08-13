@@ -1,0 +1,68 @@
+{% for question in questions %}
+
+<br />
+<label class="h3" style="color:black;">{{ Question.Question }}</label>
+<br /><br />
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="review1"
+    id="1"
+    value="Its horrible, not going to use anymore"
+    checked
+  />
+  <label class="form-check-label radio-inline" for="1"
+    ><h5>Its horrible, not going to use anymore</h5></label
+  >
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="review1"
+    id="2"
+    value="Not satisfied"
+  />
+  <label class="form-check-label radio-inline" for="2"
+    ><h5>Not satisfied</h5></label
+  >
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="review1"
+    id="3"
+    value="Service needs to be improved"
+  />
+  <label class="form-check-label radio-inline" for="3"
+    ><h5>Service needs to be improved</h5></label
+  >
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="review1"
+    id="4"
+    value="Satisfied with the service"
+  />
+  <label class="form-check-label radio-inline" for="4"
+    ><h5>Satisfied with the service</h5></label
+  >
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="review1"
+    id="5"
+    value="Its a great experience"
+  />
+  <label class="form-check-label radio-inline" for="5"
+    ><h5>Its a great experience</h5></label
+  >
+</div>
+<br /><br />
+{% endfor %}

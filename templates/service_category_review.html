@@ -1,0 +1,85 @@
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+        <style>
+        .rev{
+            margin-top:5%
+        }
+        img{
+            height:auto;
+        }
+      
+        </style>
+
+</head>
+<body>
+
+        <script>
+
+                function getQuestions() {
+                    company = document.getElementById('company').value;
+                    service = document.getElementById('service').value;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("question_div").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "/get_question?company=" + company + "&service=" + service, true);
+                    xmlhttp.send();
+                    return false;
+                }
+        
+            </script>
+
+       <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">Review It</span>
+        <span>Hey customer</span>
+    </nav>
+
+     
+              <div class="container rev">
+            
+           <div class="col-xlg-12">
+               <div class="card" style="border:2px solid #136a8a;">
+                   <div class="card-body">
+                       <form action="/add_review" method="POST" name="form">
+                           {% csrf_token %}
+
+                           <div class="form-group text-center"> 
+                               <label class="h2 "> Select Category</label><br>
+                               <input type="hidden" id="company" value="{{company_name}}">
+                               <select style="height:auto;" name="Category_id align-center" id="service" class="custom-select h2 form-control form-control-lg"><br>
+                                    {% for service in services %}   
+                                        <option value="{{service.service}}">{{service.service}}</option>
+                                    {% endfor %}
+                               </select>
+                               <button class="btn btn-primary form-control" onclick="return getQuestions()">Give Review</button>
+                           </div>
+
+                           <div id="question_div"></div>
+                           <br>
+
+                            <textarea class="form-control" style="border:solid 1px orange;"rows="6" placeholder="comment if any" name="comment" value="{object.comment}}"></textarea>
+                           <br><br>
+
+
+
+                           <button type="submit" class="btn btn-lg" style="background-color: orange;" name="sub" >Submit</button>
+                       </form>
+                   </div>
+               </div>
+           </div>
+       
+           </div>
+           <img src="static/img/add_review02.jpg" alt="Snow" width=100% class="img-fluid" style="margin-top:-42%;">
+
+</body>
+</html>
+

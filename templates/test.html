@@ -1,0 +1,93 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <style>body, html {
+    
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        /* The image used */
+        background-image: url("static/img/organisation-01.jpg");
+      
+        height: 100%;
+      
+        /* Center and scale the image nicely */
+        background-size:cover;
+        background-repeat: no-repeat;
+      
+        position: relative;
+      }
+      </style>
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">{{ username }}</span>
+  <a href="/logout" class="btn" style="background-color: orange;" role="button" aria-pressed="true">Logout</a>
+</nav>
+	<div class="container-fluid">
+	
+{% if error == "" %}
+<a href="/login">Please Login</a>
+{% else %}
+
+<div class="row">
+	<div class="col-lg-3" style="background-image: linear-gradient(to top, #136a8a 0%, #267871 99%, #267871 100%); min-height: 100%; max-height: auto">
+    <br><br>
+    <div class="card" style="width: 18rem;">
+    
+  <div class="card-body">
+    <h3 class="card-title">Browse My Services.</h3>
+    <p class="card-text"></p>
+    {% for obj in objects %}
+        <a href="/myservice/{{ obj.id }}">{{ obj.service }}</a><br>
+        {% endfor %}
+      </div>
+      </div>
+</div>
+	
+	<div class="col-lg-2">
+		
+	</div>
+	<div class="col-lg-6">
+    <br><br>
+      <center><h2>Welcome Aboard</h2></center><br><br>
+	<div class="card" style="border: 2px solid #136a8a" >
+  <div class="card-body">
+    <h3 class="card-title">Add a Service</h3>
+    <p class="card-text"></p>
+  <form action="/add_service_form" method="POST" name='form'>
+  	{% csrf_token %}
+  	<!-- <label>Company:</label><br> -->
+    <input type="text" class="form-control form-control-lg" id = "id_company" name="company" value="{{ username }}" placeholder="Company" hidden>
+     <label><h4>Service:</h4></label>
+    <input type="text" class="form-control form-control-lg" id = "id_service" placeholder="Name of the service" name="service">
+    <label><h4>Category:</h4></label>
+
+    <select class="form-control form-control-lg" placeholder="Category" id = "id_category" name="category">
+      {% for category in categorys %}
+        <option value="{{category.name}}">{{category.name}}</option>
+      {% endfor %}
+    </select>
+    
+    <label><h4>Description:</h4></label>
+    <input type="text" class="form-control form-control-lg" name="description" id="id_description" placeholder="Description">
+    <br>
+  <button type="submit" class="btn btn-lg " style="background-color: orange;" name="sub">Submit</button> 
+</form>
+       
+  </div>
+</div>
+	</div>
+</div>
+{% endif %}
+</div>
+</body>

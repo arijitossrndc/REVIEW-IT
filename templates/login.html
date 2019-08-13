@@ -1,0 +1,62 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("static/img/login-01.jpg");
+
+  height: auto;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Review It</span>
+</nav>
+
+<div class="bg-img">
+  <div class="container"><br>
+  <h1 class="col-lg-8 text-center" style="color:white">Login here to start reviewing</h1></div>
+<div class="container justify-center pt-4 col-lg-4 col-md-12">
+  <div class="card">
+        <img src="static/img/form-01.jpg" class="card-img-top img-fluid " height="50%">
+  <div class="card-header">
+    <h2 class="text-center">Login</h2>
+  </div>
+  <div class="card-body">
+    
+  <form action="" method="POST" name='form'>
+	{% csrf_token %}
+	<input type="text" class="form-control form-control-lg" id="id_password" name="company" placeholder="Enter Company"><br><br>
+  <input type="password" class="form-control form-control-lg" id="id_confirm_password" name="password" placeholder="Enter Password"><br><br>
+  <div class="row">
+  
+<button type="submit" class="btn btn-lg col-lg-12" style="background-color: orange;"><h3>Submit</h3></button>	</form>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+</body>

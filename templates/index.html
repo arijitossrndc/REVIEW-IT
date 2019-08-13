@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Review It</title>
+    <style type="text/css">
+      #myList{
+        position:absolute;
+        margin-left: 192px;
+      }
+      a {
+    text-decoration: none;
+    color: #b61c1c; /* For Example */
+}
+
+
+    </style>
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="static/css/creative.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+     <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script type="text/javascript">
+      $("#search").click(function(){
+        alert("aa");
+      });
+    </script>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg  navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Review It</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Log in</a>
+            </li>
+            <li class="nav-item">
+              <a href="/create" class="nav-link">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Start Reviewing Services</strong>
+            </h1>
+            <hr>
+
+          </div>
+          <div class="col-lg-8 col-md-8 col-sm-8 img-fluid float-left">
+            <img class="img-fluid" src="static/img/head.png">
+          </div>
+          
+          <div class="col-lg-4 col-sm-4">
+              <br><br>
+            <p class="text-white mb-5">Not satisfied with any service, start giving your reviews and feedback here.</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#about">Get Started</a>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading text-white">We've got what you need!</h2>
+            <hr class="light my-4">
+            <p class="text-faded mb-4">Search for Organizations and start Reviewing</p>
+            <div class="d-flex justify-content-center col-lg-12 col-sm-10">
+                <form class="form-inline" action="/review" method="POST">
+                    {% csrf_token %}
+  <div class="form-group">
+    <!--<label for="search">Search</label>-->
+    <input type="text" class="form-control" name="company" id="search" autocomplete="off">
+  </div>&nbsp;&nbsp;
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+                  <!--<form method="POST" action="">-->
+                    <!--{% csrf_token %}-->
+                  <!--&lt;!&ndash; <input  type="text" id="search" name="" placeholder="Search..."> &ndash;&gt;-->
+                  <!--<input class="" type="text" name="" placeholder="Search..." id="search" autocomplete="off"><br>-->
+                  <!--&lt;!&ndash; <input type="submit" class="btn btn-success" name="sub" value="Search"> &ndash;&gt;-->
+                  <!--&lt;!&ndash; <a href="#" class="search_icon"><i class="fas fa-search"></i></a> &ndash;&gt;-->
+                  <!--</form>-->
+
+              </div>
+              <div id="myList"  class="col-4" style="background-color: white;">
+                   
+                  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Customer Satisfaction</h2>
+            <hr class="my-4">
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-1 col-md-6 text-center">
+                <div class="service-box mt-5 mx-auto">
+                  
+                </div>
+              </div>
+            <div class="col-lg-2 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+              <img src="static/img/1.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+              <h3 class="mb-3">"Its horrible, not going to use anymore"</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+                <img src="static/img/2.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+                              <h3 class="mb-3">"Not satisfied"</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+                <img src="static/img/3.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+                              <h3 class="mb-3">"Service needs to be improved"</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+                <img src="static/img/4.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+                              <h3 class="mb-3">"Satisfied with the service"</h3>
+              <p class="text-muted mb-0"></p>
+            </div>
+          </div>
+        
+          <div class="col-lg-2 col-md-6 text-center">
+              <div class="service-box mt-5 mx-auto">
+                  <img src="static/img/5.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+                                <h3 class="mb-3">"Its a great experience"</h3>
+                <p class="text-muted mb-0"></p>
+              </div>
+            </div>
+  
+        </div>
+        <div class="row">
+        <div class="col-lg-12 col-md-6 text-center">
+            <div class="service-box mt-5 mx-auto">
+                <img src="static/img/6.png"  class="text-primary img-fluid mb-3 sr-icon-1">
+                              
+            </div>
+          </div>
+</div>
+      </div>
+    </section>
+
+   <section class="p-0" id="portfolio">
+      <div class="container p-0">
+        <div class="row no-gutters popup-gallery">
+          <div class="col-lg-8 col-sm-10">
+            <img src="static/img/write-review.png" class="img-fluid">  
+          </div>
+
+        </div>
+          <div class="row">
+          <div class="col-lg-4 col-sm-10 text-center">
+           <h3 class="section-heading">Write Reviews</h3> 
+          </div>
+        
+        
+            <div class="col-lg-8 col-sm-10">
+              <img src="static/img/write-review2.png" class="img-fluid">  
+            </div>
+          
+          
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-dark text-white">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-4"><br><br>
+        <h2 class="text-white text-center">Give Ratings</h2>
+      </div>
+  
+    <div class=" col-lg-8">
+        <img src="static/img/star.png" class="img-fluid">
+
+    </div>
+    </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <h2 class="section-heading">Let's Get In Touch!</h2>
+            <hr class="my-4">
+            <p class="mb-5">Having any problem in giving reviews? Don't Worry, just give us a call or send us an email and we will get back to you as soon as possible!</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 ml-auto text-center">
+            <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
+            <p>123-456-6789</p>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
+            <p>
+              <a href="#">feedback@review-it.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+        $('#res46').hover(function(){
+        console.log("ee");
+        });
+      $("body").click(function(){
+         $("#myList").empty();
+      });
+  
+      $("#search").keypress(function(){
+        $.ajax({
+      type:'POST',
+      url:'/search', 
+      dataType: "json",
+      data:{
+        Search:$('#search').val(),
+        csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+      },
+      success:function(values_list){
+        console.log(values_list.length);
+        carriers =  values_list;
+        $("#myList").empty();
+        for(var i = 0 ; i < values_list.length ; i++){
+           var p = document.getElementById('myList');
+            var newElement = document.createElement('a');
+            var newElement1 = document.createElement('br');
+           newElement.setAttribute('id', 'res'+carriers[i].id);
+           var t = "#res"+carriers[i].id;
+           console.log(t);
+           newElement.setAttribute('href', 'google.com');
+           newElement.innerHTML = carriers[i].company;
+           p.appendChild(newElement);
+           p.appendChild(newElement1);
+           <!--p.appendchild(newElement1);-->
+           data = carriers[i].company;
+        <!--$('#'+carriers[i].id).hover(data, function(e) {-->
+        <!--console.log(e.data);-->
+            <!--});-->
+
+            $(t).hover(function(){
+            $('#search').val(data);
+            <!--$("#myList").empty();-->
+            <!--$(t).prop("class",'btn btn-primary btn-lg active');-->
+            });
+
+        }
+
+      }
+      
+  });
+      });
+    // function searchSuccess(data,textStatus,jqXHR){
+    //   $('#search').html(data);
+    // }
+    </script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="static/js/creative.min.js"></script>
+    <script src="static/js/jquery.js"></script>
+    {% for f in json.values_list %}
+    {{ f.company }}
+    {% endfor%}  
+</body>
+
+</html>
